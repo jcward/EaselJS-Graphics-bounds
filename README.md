@@ -22,7 +22,7 @@ Implemented
 Not implemented / accounted for
 -------------------------------
 - Miter (i.e. out-cropping on acute angles), joints settings ignored
-- drawArc, arcTo (I simply didn't need it, feel free to contribute)
+- drawArc, arcTo, drawPolyStar (I simply didn't need it, feel free to contribute)
 - Maybe something else I missed
 - See the TODOs in code
 
