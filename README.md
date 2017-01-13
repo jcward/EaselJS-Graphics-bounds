@@ -4,6 +4,10 @@ A simplistic implementation for calculating the bounds of an EaselJS Grahpics ob
 Tested against the current git version (631cdff, roughly == 0.8.2) of Graphics.js:
 https://rawgit.com/CreateJS/EaselJS/631cdffb85eff9413dab43b4676f059b4232d291/src/easeljs/display/Graphics.js
 
+**Screenshot of test.html:**
+
+![selection_999 219](https://cloud.githubusercontent.com/assets/2192439/21940783/1aeb8d36-d983-11e6-8e50-33e8349cc85e.png)
+
 Why?
 ----
 
