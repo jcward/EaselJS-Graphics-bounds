@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+   canvas { /* Just for debug */
+     position:relative;
+     display: block;
+     outline: 1px dashed rgba(255,0,0,0.25);
+     margin-bottom:20px;
+   }
+
+   .label {
+     font-family:arial;
+     margin-bottom:5px;
+   }
+  </style>
+</head>
+<body style="padding:20px;margin:0">
+</body>
+
+  <!-- You could concatenate these, or load the bounds patch after Graphics.js -->
+  <script src="Graphics.js"></script>
+  <script src="bounds.js"></script>
+  <script>
+   var test = 1;
+   var y_offset = 0;
+
+   for (test=1; test<8; test++) {
+     var name = "";
+     var g = new createjs.Graphics();
+   
+     if (test==1) {
+       name = "Quadratic curve";
+       g.beginFill("#ff0000");
+       g.drawRect(10,10,50,50);
+       g.endFill();
+
+       g.setStrokeStyle(10, "round");
+       g.beginStroke("#105");
+       g.moveTo(25,15);
+       g.curveTo(90,60, 70, 3);
+
+       g.setStrokeStyle(5, "round");
+       g.beginStroke("rgba(0,0,255,0.4)");
+       g.beginFill("rgba(0,255,0,0.4)");
+       g.drawCircle(50,50,20);
+     }
+   
+     if (test==2) { // cubic bezier
+       name = "Bezier curve";
+       g.setStrokeStyle(10, "round");
+       g.beginStroke("#105");
+       g.moveTo(35,15);
+       g.bezierCurveTo(0,80, 100,80, 70,9);
+     }
+   
+     if (test==3) { // circle
+       name = "Circle / Ellipse";
+       g.setStrokeStyle(10, "round");
+       g.beginStroke("#105");
+       g.beginFill("#ff0000");
+       g.drawCircle(30,30,18);
+       g.endStroke();
+       g.drawEllipse(30,30,60,35);
+     }
+   
+     if (test==4) { // rect / round rect
+       name = "RoundRect";
+       g.setStrokeStyle(10, "round");
+       //g.beginStroke("#105");
+       g.beginFill("#ff0000");
+       g.drawRoundRect(15,20,50,40,15);
+     }
+   
+     if (test==5) { // TODO: miter
+       name = "Miter<br><span style='color:#555;font-size:90%'>Note: at the top, the flat caps are wrong, and at the bottom miter isn't accounted for.</span>";
+       var dx = 15;
+       g.setStrokeStyle(10, "miter");
+       g.beginStroke("#105");
+       g.moveTo(1*dx,15);
+       g.lineTo(2*dx,60);
+       g.lineTo(3*dx,15);
+     }
+   
+     if (test==6) { // quadratic (stability, a==0 testcase)
+       name = "A quadratic testcase around an instability in the bezier code";
+       g.setStrokeStyle(10, "round");
+       g.beginStroke("#105");
+       g.moveTo(15,15);
+       g.curveTo(780,630, 470, 8);
+       g.endStroke();
+     }
+   
+     if (test==7) { // cubic bezier (same as quadratic above)
+       name = "Same testcase using a bezier";
+       g.setStrokeStyle(10, "round");
+       g.beginStroke("#105");
+       g.moveTo(15,15);
+       g.bezierCurveTo( 15 + 2/3*(780-15),
+                        15 + 2/3*(630-15),
+                        470 + 2/3*(780-470),
+                          8 + 2/3*(630-8),
+                        470,8);
+     }
+
+     var label = document.createElement('div');
+     label.innerHTML = name;
+     label.className = "label";
+     document.body.appendChild(label);
+
+     // Create a canvas
+     var canvas = document.createElement('canvas');
+     document.body.appendChild(canvas);
+
+     // Helper function that sizes the canvas correctly (via bounds),
+     // then draws into it. By default, also renders at devicePixelRatio
+     // for retina compatibility.
+     var bnd = g.drawAndSizeCanvas(canvas);
+   }
+
+  </script>
+
+</html>
