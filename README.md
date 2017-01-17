@@ -6,7 +6,7 @@ https://rawgit.com/CreateJS/EaselJS/631cdffb85eff9413dab43b4676f059b4232d291/src
 
 **Screenshot of visual_test.html:**
 
-![selection_999 219](https://cloud.githubusercontent.com/assets/2192439/21940783/1aeb8d36-d983-11e6-8e50-33e8349cc85e.png)
+![screenshot](https://cloud.githubusercontent.com/assets/2192439/22027758/0c8c40c0-dc92-11e6-999c-a03bbfe48556.png)
 
 Why?
 ----
