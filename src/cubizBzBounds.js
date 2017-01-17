@@ -19,7 +19,7 @@ this.createjs.cubicBzBounds = function(p0, p1, p2, p3) // returns [x0, y0, x1, y
   var PY = [P[0].y, P[1].y, P[2].y, P[3].y];
 
   var a = 3 * P[3].x - 9 * P[2].x + 9 * P[1].x - 3 * P[0].x;
-  if (a==0) a = -0.0000001; // stability addition
+  if (a==0) a = 0.0000001; // stability addition
   var b = 6 * P[0].x - 12 * P[1].x + 6 * P[2].x;
   var c = 3 * P[1].x - 3 * P[0].x;
   //console.log("a "+a+" "+b+" "+c);
@@ -50,6 +50,7 @@ this.createjs.cubicBzBounds = function(p0, p1, p2, p3) // returns [x0, y0, x1, y
   }
 
   a = 3 * P[3].y - 9 * P[2].y + 9 * P[1].y - 3 * P[0].y;
+  if (a==0) a = 0.0000001; // stability addition
   b = 6 * P[0].y - 12 * P[1].y + 6 * P[2].y;
   c = 3 * P[1].y - 3 * P[0].y;
   disc = b * b - 4 * a * c;

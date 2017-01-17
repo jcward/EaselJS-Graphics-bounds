@@ -120,16 +120,16 @@
        g.drawPolyStar(100,100,60,8,0.5);
      }
 
-     if (test==9) { // quadratic (stability, a==0 testcase)
+     if (test==9) { // quadratic (instability, a==0 testcase)
        name = "A quadratic testcase around an instability in the bezier code";
-       g.setStrokeStyle(10, "round");
+       g.setStrokeStyle(3, "round");
        g.beginStroke("#105");
-       g.moveTo(15,15);
+       g.moveTo(1.5,1.5);
        g.curveTo(78,63, 47, .8);
        g.endStroke();
      }
 
-     if (test==10) { // cubic bezier (same as quadratic above)
+     if (test==10) { // cubic bezier (instability, a==0 testcase)
        name = "Same testcase using a bezier";
        g.setStrokeStyle(10, "round");
        g.beginStroke("#105");
